@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Primeira Classe Leilões</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Primeira Classe Leilões</h1>
+    </header>
+    <main>
+        <section id="product-details">
+            <h2>Mamadeira Antiga</h2>
+            <p>Descrição do produto...</p>
+            <img src="mamadeira.jpg" alt="Mamadeira Antiga">
+            <p>Valor atual do lance mais alto: R$ <span id="current-bid">0</span></p>
+            <form id="bid-form">
+                <label for="bid-name">Seu nome:</label>
+                <input type="text" id="bid-name" name="bid-name">
+                <label for="bid-amount">Seu lance:</label>
+                <input type="number" id="bid-amount" name="bid-amount" min="0" step="1">
+                <button type="submit">Dar Lance</button>
+            </form>
+        </section>
+        <section id="countdown-timer">
+            <h2>Tempo Restante:</h2>
+            <p id="timer">XX dias XX horas XX minutos XX segundos</p>
+        </section>
+        <section id="ranking">
+            <h2>Ranking de Lances</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Lance Mais Alto</th>
+                    </tr>
+                </thead>
+                <tbody id="ranking-body">
+                    <!-- Aqui será adicionado dinamicamente o ranking -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Primeira Classe Leilões. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
