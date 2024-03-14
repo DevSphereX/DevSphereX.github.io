@@ -13,7 +13,7 @@ function updateTimer() {
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        document.getElementById("timer").innerText = ${minutes} minutos ${seconds} segundos;
+        document.getElementById("timer").innerText = `${minutes} minutos ${seconds} segundos`;
     }
 }
 
@@ -36,7 +36,7 @@ bidForm.addEventListener("submit", function(event) {
 
 function addRankingEntry(name, amount) {
     const row = document.createElement("tr");
-    row.innerHTML = <td>${name}</td><td>R$ ${amount}</td>;
+    row.innerHTML = `<td>${name}</td><td>R$ ${amount}</td>`;
     document.getElementById("ranking-body").appendChild(row);
 }
 
