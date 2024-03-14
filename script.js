@@ -41,32 +41,15 @@ function addRankingEntry(name, amount) {
 }
 
 function saveBid(name, amount) {
-    fetch('save_bid.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, amount }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Lance salvo:', data);
-    })
-    .catch((error) => {
-        console.error('Erro ao salvar lance:', error);
-    });
+    let bids = JSON.parse(localStorage.getItem("bids")) || [];
+    bids.push({ name, amount });
+    localStorage.setItem("bids", JSON.stringify(bids));
 }
 
 function loadBids() {
-    fetch('get_bids.php')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(bid => {
-            addRankingEntry(bid.name, bid.amount);
-        });
-    })
-    .catch((error) => {
-        console.error('Erro ao carregar lances:', error);
+    let bids = JSON.parse(localStorage.getItem("bids")) || [];
+    bids.forEach(bid => {
+        addRankingEntry(bid.name, bid.amount);
     });
 }
 
