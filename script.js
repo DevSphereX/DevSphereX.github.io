@@ -1,5 +1,5 @@
 const endDate = new Date();
-endDate.setMinutes(endDate.getMinutes() + 20);
+endDate.setMinutes(endDate.getMinutes() + 25);
 
 setInterval(updateTimer, 1000);
 
@@ -41,13 +41,13 @@ function addRankingEntry(name, amount) {
 }
 
 function saveBid(name, amount) {
-    const bids = JSON.parse(localStorage.getItem("bids")) || [];
+    let bids = JSON.parse(localStorage.getItem("bids")) || [];
     bids.push({ name, amount });
     localStorage.setItem("bids", JSON.stringify(bids));
 }
 
 function loadBids() {
-    const bids = JSON.parse(localStorage.getItem("bids")) || [];
+    let bids = JSON.parse(localStorage.getItem("bids")) || [];
     for (const bid of bids) {
         addRankingEntry(bid.name, bid.amount);
         if (bid.amount > parseInt(document.getElementById("current-bid").innerText)) {
