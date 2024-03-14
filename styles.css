@@ -1,3 +1,4 @@
+/* Estilos para o site de leilão */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,50 +7,46 @@ body {
 
 header {
     background-color: #333;
-    color: white;
+    color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 1rem 0;
 }
 
 main {
     max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 1rem;
 }
 
-section {
-    margin-bottom: 20px;
+#product-details {
+    margin-bottom: 2rem;
 }
 
-img {
+#product-details img {
     max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
 }
 
-form {
-    margin-top: 10px;
+#bid-form {
+    margin-bottom: 1rem;
 }
 
-table {
+#ranking {
+    margin-top: 2rem;
+}
+
+#ranking table {
     width: 100%;
     border-collapse: collapse;
 }
 
-th, td {
+#ranking th, #ranking td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 0.5rem;
     text-align: left;
 }
 
-th {
+#ranking th {
     background-color: #f2f2f2;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
