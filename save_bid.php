@@ -20,4 +20,12 @@ if ($conn->connect_error) {
 
 // Insere o lance no banco de dados
 $sql = "INSERT INTO bids (name, amount) VALUES ('$name', $amount)";
-if ($conn->query($sql)
+if ($conn->query($sql) === TRUE) {
+    echo json_encode(array("status" => "success"));
+} else {
+    echo json_encode(array("status" => "error", "message" => $conn->error));
+}
+
+// Fecha a conexão com o banco de dados
+$conn->close();
+?>
