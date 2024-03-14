@@ -1,16 +1,23 @@
 <?php
-include "config.php";
+// Conexão com o banco de dados
+$servername = "localhost";
+$username = "seu_usuario";
+$password = "sua_senha";
+$dbname = "seu_banco_de_dados";
 
-$name = $_POST["name"];
-$amount = $_POST["amount"];
+// Recebe os dados do lance do frontend
+$data = json_decode(file_get_contents('php://input'), true);
+$name = $data['name'];
+$amount = $data['amount'];
 
-$sql = "INSERT INTO bids (name, amount) VALUES ('$name', '$amount')";
+// Cria uma conexão com o banco de dados
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Lance salvo com sucesso!";
-} else {
-    echo "Erro ao salvar o lance: " . $conn->error;
+// Verifica se houve erro na conexão
+if ($conn->connect_error) {
+    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
 }
 
-$conn->close();
-?>
+// Insere o lance no banco de dados
+$sql = "INSERT INTO bids (name, amount) VALUES ('$name', $amount)";
+if ($conn->query($sql)
